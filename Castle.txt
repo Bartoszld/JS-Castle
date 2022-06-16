@@ -1,0 +1,84 @@
+
+function build_wall(x1 = 10,y1 = 10,x2 = 30,y2 = 30) {
+blocks.fill(STONE, pos(x1, 0, y1), pos(x2, 10, y2))
+
+for (let i=0; i<10;i++){
+
+blocks.place(AIR, pos(x1+2*i, 10, y1))
+blocks.place(AIR, pos(x1+2*i, 10, y1+1))
+blocks.place(AIR, pos(x1, 10, y1+2*i))
+blocks.place(AIR, pos(x1+1, 10, y1+2*i))
+}
+}
+
+function build_window(x1 = 10,y1 = 10,x2 = 30,y2 = 30) {
+blocks.fill(GLASS, pos(x1, 6, y1), pos(x2, 7, y2))
+}
+
+function build_tower(x1 = 10,y1 = 10,x2 = 30,y2 = 30) {
+blocks.fill(STONE_BRICKS, pos(x1, -2, y1), pos(x2, 14, y2))
+blocks.fill(AIR, pos(x1+1, 13, y1+1), pos(x2-1, 14, y2-1))
+blocks.place(AIR, pos(x1, 14, y1+2))
+blocks.place(AIR, pos(x1+2, 14, y1))
+blocks.place(AIR, pos(x2-2, 14, y2))
+blocks.place(AIR, pos(x2, 14, y2-2))
+}
+
+function build_gate(x1 = 0,y1 = 0,x2 = 0,y2 = 0) {
+blocks.fill(PLANKS_OAK, pos(x1, 1, y1), pos(x2, 4, y2))
+blocks.fill(AIR, pos(x1, 1, y1 + 1), pos(x2, 3, y2 -1))
+blocks.fill(PLANKS_SPRUCE, pos(x1 - 10, 0, y1), pos(x2, 0, y2))
+}
+
+function build_water(x1 = 10,y1 = 10,x2 = 30,y2 = 30) {
+blocks.fill(WATER, pos(x1, -2, y1), pos(x2, -1, y2))
+}
+
+function build_secondfloor (x1 = 10,y1 = 10,x2 = 30,y2 = 30){
+blocks.fill(PLANKS_JUNGLE, pos(x1, 5 , y1), pos(x2, 5 , y2))
+blocks.fill(AIR, pos(x1+2, 5 , y1+2), pos(x2-2, 5 , y2-2))
+}
+
+function build_stairs (x1 = 10,y1 = 10){
+
+for (let i=0; i<5;i++)
+    {
+    blocks.place(OAK_WOOD_STAIRS, pos(x1+i, 1+i, y1))
+    }
+}
+
+build_wall(10,10,11,30)
+build_wall(10,10,30,11)
+build_wall(10,29,30,30)
+build_wall(29,10,30,30)
+
+
+build_gate(10,18,11,22)
+
+
+build_water(3,3,9,37)
+build_water(3,3,37,9)
+build_water(3,31,37,37)
+build_water(37,3,31,37)
+
+
+build_window(15,10,16,11)
+build_window(10,15,11,16)
+build_window(25,10,24,11)
+build_window(10,25,11,24)
+build_window(15,30,16,29)
+build_window(24,29,25,30)
+build_window(29,24,30,25)
+build_window(29,15,30,16)
+
+build_secondfloor(12,12,28,28)
+
+build_tower(28,8,32,12)
+build_tower(8,8,12,12)
+build_tower(8,28,12,32)
+build_tower(28,28,32,32)
+
+
+blocks.fill(PLANKS_DARK_OAK, pos(11, 0, 11), pos(29, 0, 29)) //GROUND FLOOR 
+
+build_stairs(23,23)
